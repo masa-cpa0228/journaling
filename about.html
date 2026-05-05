@@ -6,17 +6,21 @@
   <meta name="description" content="思考ジャーナルについて。公認会計士・高橋正哉が、個人としての思考、読書、仕事観、人生論を書き留める場所です。">
   <title>このサイトについて | 思考ジャーナル</title>
   <link rel="stylesheet" href="assets/css/main.css">
+  <script src="assets/js/main.js" defer></script>
 </head>
-<body>
+<body data-site-root=".">
   <div class="site-shell">
     <header class="site-header">
       <div class="site-header-inner">
         <a class="site-title" href="index.html">思考ジャーナル</a>
-        <nav class="site-nav" aria-label="主要ナビゲーション">
-          <a href="about.html" aria-current="page">この場所について</a>
-          <a href="articles.html">コラム</a>
-          <a href="https://www.cpa-tm.com/home" target="_blank" rel="noopener">公式サイト</a>
-        </nav>
+        <div class="site-actions">
+          <nav class="site-nav" aria-label="主要ナビゲーション">
+            <a href="about.html" aria-current="page">この場所について</a>
+            <a href="articles.html">コラム</a>
+            <a href="https://www.cpa-tm.com/home" target="_blank" rel="noopener">公式サイト</a>
+          </nav>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="ダークモードに切り替える">Dark</button>
+        </div>
       </div>
     </header>
 
@@ -74,8 +78,8 @@
         <p class="eyebrow">Next</p>
         <h2 class="section-title" id="next-title">これからの作り方</h2>
         <p>
-          まずは静かな読み物サイトとして、ページの器を整えていきます。
-          コラム一覧ページ、最初の記事ページを追加したあと、必要に応じて記事の分類や読みやすさを改善していきます。
+          静かな読み物サイトとしての器を保ちながら、記事が増えても管理しやすい形へ少しずつ整えます。
+          現在は、記事データのJSON化、タグ絞り込み、読了時間、目次、表示テーマ切替を追加しています。
         </p>
         <p class="page-link-row">
           <a class="text-link" href="index.html">トップページへ戻る</a>

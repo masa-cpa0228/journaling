@@ -1,0 +1,41 @@
+[
+  {
+    "id": "2026-05-05-accountants-and-generative-ai",
+    "status": "published",
+    "date": "2026-05-05",
+    "displayDate": "2026年5月5日",
+    "title": "会計士にとって、生成AIは必須のスキルになる",
+    "url": "articles/2026-05-05-accountants-and-generative-ai.html",
+    "category": "仕事観・会計・生成AI",
+    "eyebrow": "Work / Accounting / AI",
+    "summary": "監査実務の多くがパソコンの前で行われる時代に、生成AIをどう使い、専門家として何を判断するのかを考えます。",
+    "tags": ["会計", "生成AI", "監査", "仕事観"]
+  },
+  {
+    "id": "planned-living-accounting",
+    "status": "planned",
+    "displayDate": "準備中",
+    "title": "会計を「活きたもの」にするとは何か",
+    "category": "思考",
+    "summary": "専門知識を、経営や人の行動にどう接続するか。仕事の根にある問いを整理する予定です。",
+    "tags": ["会計", "仕事観", "思考"]
+  },
+  {
+    "id": "planned-reading-words",
+    "status": "planned",
+    "displayDate": "準備中",
+    "title": "読んだ本から残った言葉",
+    "category": "読書",
+    "summary": "知識の要約ではなく、時間が経っても残り続ける一文や考え方について書きます。",
+    "tags": ["読書", "言葉", "記録"]
+  },
+  {
+    "id": "planned-life-stance",
+    "status": "planned",
+    "displayDate": "準備中",
+    "title": "かっこ悪い生き方をしないために",
+    "category": "人生論",
+    "summary": "仕事、家庭、判断の場面で大切にしている基準を、個人の言葉で掘り下げます。",
+    "tags": ["人生論", "判断", "姿勢"]
+  }
+]

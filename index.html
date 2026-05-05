@@ -6,17 +6,21 @@
   <meta name="description" content="公認会計士・高橋正哉の個人格コラム集。思考、読書、仕事観、人生論を静かに書き留める場所です。">
   <title>思考ジャーナル | 高橋正哉</title>
   <link rel="stylesheet" href="assets/css/main.css">
+  <script src="assets/js/main.js" defer></script>
 </head>
-<body>
+<body data-site-root=".">
   <div class="site-shell">
     <header class="site-header">
       <div class="site-header-inner">
         <a class="site-title" href="index.html" aria-current="page">思考ジャーナル</a>
-        <nav class="site-nav" aria-label="主要ナビゲーション">
-          <a href="about.html">この場所について</a>
-          <a href="articles.html">コラム</a>
-          <a href="https://www.cpa-tm.com/home" target="_blank" rel="noopener">公式サイト</a>
-        </nav>
+        <div class="site-actions">
+          <nav class="site-nav" aria-label="主要ナビゲーション">
+            <a href="about.html">この場所について</a>
+            <a href="articles.html">コラム</a>
+            <a href="https://www.cpa-tm.com/home" target="_blank" rel="noopener">公式サイト</a>
+          </nav>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="ダークモードに切り替える">Dark</button>
+        </div>
       </div>
     </header>
 
@@ -67,7 +71,7 @@
       <section class="section-block content-container" id="articles-preview" aria-labelledby="articles-title">
         <p class="eyebrow">Articles</p>
         <h2 class="section-title" id="articles-title">最新のコラム</h2>
-        <ul class="article-list">
+        <ul class="article-list" data-latest-articles data-latest-limit="3">
           <li class="article-card">
             <p class="article-meta">2026年5月5日 / 仕事観・会計・生成AI</p>
             <h3 class="article-card-title">
@@ -96,7 +100,7 @@
         <h2 class="section-title" id="next-title">次のステップ</h2>
         <p>
           フェーズ1では、トップページ、Aboutページ、コラム一覧、最初の記事ページまでを作成しました。
-          次は、記事を増やしながら、必要に応じてJavaScriptによる一覧の自動生成や絞り込みを加えていきます。
+          フェーズ2では、記事データをJSONで管理し、JavaScriptで最新記事の表示やタグ絞り込みを動かしていきます。
         </p>
       </section>
     </main>

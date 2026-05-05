@@ -6,17 +6,21 @@
   <meta name="description" content="思考ジャーナルのコラム一覧。思考、読書、仕事観、人生論について書いた記事を整理するページです。">
   <title>コラム一覧 | 思考ジャーナル</title>
   <link rel="stylesheet" href="assets/css/main.css">
+  <script src="assets/js/main.js" defer></script>
 </head>
-<body>
+<body data-site-root=".">
   <div class="site-shell">
     <header class="site-header">
       <div class="site-header-inner">
         <a class="site-title" href="index.html">思考ジャーナル</a>
-        <nav class="site-nav" aria-label="主要ナビゲーション">
-          <a href="about.html">この場所について</a>
-          <a href="articles.html" aria-current="page">コラム</a>
-          <a href="https://www.cpa-tm.com/home" target="_blank" rel="noopener">公式サイト</a>
-        </nav>
+        <div class="site-actions">
+          <nav class="site-nav" aria-label="主要ナビゲーション">
+            <a href="about.html">この場所について</a>
+            <a href="articles.html" aria-current="page">コラム</a>
+            <a href="https://www.cpa-tm.com/home" target="_blank" rel="noopener">公式サイト</a>
+          </nav>
+          <button class="theme-toggle" type="button" data-theme-toggle aria-label="ダークモードに切り替える">Dark</button>
+        </div>
       </div>
     </header>
 
@@ -33,7 +37,8 @@
       <section class="section-block content-container" aria-labelledby="archive-title">
         <p class="eyebrow">Archive</p>
         <h2 class="section-title" id="archive-title">公開済みの記事</h2>
-        <ul class="article-list article-list-detailed">
+        <div class="tag-filter-group" data-tag-filters aria-label="タグで記事を絞り込む"></div>
+        <ul class="article-list article-list-detailed" data-article-archive>
           <li class="article-card">
             <p class="article-meta">2026年5月5日 / 仕事観・会計・生成AI</p>
             <h3 class="article-card-title">
@@ -53,7 +58,7 @@
       <section class="section-block content-container" aria-labelledby="planned-title">
         <p class="eyebrow">Planned</p>
         <h2 class="section-title" id="planned-title">準備中の記事</h2>
-        <ul class="article-list article-list-detailed">
+        <ul class="article-list article-list-detailed" data-planned-articles>
           <li class="article-card">
             <p class="article-meta">準備中 / 思考</p>
             <h3 class="article-card-title">会計を「活きたもの」にするとは何か</h3>
