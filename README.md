@@ -42,7 +42,7 @@ python3 server.py
 ├── about.html              サイトについて
 ├── articles.html           コラム一覧
 ├── articles/               個別記事ページを格納
-│   └── 2026-05-XX-first-post.html
+│   └── 2026-05-05-accountants-and-generative-ai.html
 ├── assets/
 │   ├── css/main.css        共通スタイル
 │   └── js/main.js          共通スクリプト（フェーズ2以降）

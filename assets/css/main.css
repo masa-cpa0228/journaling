@@ -441,6 +441,23 @@ select {
   color: var(--color-muted);
 }
 
+.article-header {
+  margin-bottom: clamp(34px, 6vw, 56px);
+  padding-bottom: 28px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.article-page .lead {
+  margin-bottom: 1.6em;
+  color: var(--color-text);
+}
+
+.article-footer {
+  margin-top: clamp(44px, 7vw, 72px);
+  padding-top: 26px;
+  border-top: 1px solid var(--color-border);
+}
+
 .site-footer {
   border-top: 1px solid var(--color-border);
   color: var(--color-muted);
