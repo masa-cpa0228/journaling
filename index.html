@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>高橋正哉 | 公認会計士</title>
+  <style>
+    /* ===== Reset & Base ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #1a2744;
+      --navy-light: #243258;
+      --gold: #c8a84b;
+      --gold-light: #e2c678;
+      --white: #ffffff;
+      --off-white: #f8f6f1;
+      --text: #2c2c2c;
+      --text-muted: #6b7280;
+      --border: #e5e0d8;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic', 'Meiryo', sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.7;
+      font-size: 16px;
+    }
+
+    /* ===== Nav ===== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(26, 39, 68, 0.97);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(200, 168, 75, 0.3);
+    }
+
+    .nav-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 60px;
+    }
+
+    .nav-logo {
+      color: var(--gold);
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold); }
+
+    /* ===== Hamburger (mobile) ===== */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--white);
+      transition: all 0.3s;
+    }
+
+    /* ===== Hero ===== */
+    #hero {
+      min-height: 100vh;
+      background: linear-gradient(135deg, var(--navy) 0%, #0d1a36 60%, #1e3a5f 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding: 100px 24px 60px;
+    }
+
+    #hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 40% at 50% 60%, rgba(200,168,75,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 80% 60% at 20% 20%, rgba(255,255,255,0.03) 0%, transparent 60%);
+    }
+
+    .hero-content { position: relative; z-index: 1; }
+
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid rgba(200,168,75,0.6);
+      color: var(--gold);
+      font-size: 12px;
+      letter-spacing: 0.15em;
+      padding: 6px 18px;
+      border-radius: 2px;
+      margin-bottom: 28px;
+      text-transform: uppercase;
+    }
+
+    .hero-name {
+      font-size: clamp(42px, 8vw, 80px);
+      color: var(--white);
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      line-height: 1.1;
+      margin-bottom: 8px;
+    }
+
+    .hero-name-kana {
+      font-size: 16px;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.2em;
+      margin-bottom: 32px;
+    }
+
+    .hero-tagline {
+      font-size: clamp(18px, 3vw, 26px);
+      color: var(--gold-light);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      margin-bottom: 16px;
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      color: rgba(255,255,255,0.6);
+      letter-spacing: 0.08em;
+      margin-bottom: 48px;
+    }
+
+    .hero-cta {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--navy);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      padding: 14px 36px;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .hero-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,0.35);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-align: center;
+    }
+    .hero-scroll::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.3), transparent);
+      margin: 8px auto 0;
+    }
+
+    /* ===== Section Base ===== */
+    section { padding: 90px 24px; }
+    section:nth-child(even) { background: var(--off-white); }
+
+    .container { max-width: 1000px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: clamp(26px, 4vw, 38px);
+      color: var(--navy);
+      font-weight: 800;
+      margin-bottom: 48px;
+      line-height: 1.2;
+    }
+
+    .section-divider {
+      width: 48px;
+      height: 3px;
+      background: var(--gold);
+      margin-bottom: 20px;
+    }
+
+    /* ===== Profile ===== */
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    .profile-photo {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.3);
+      font-size: 13px;
+      letter-spacing: 0.08em;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .profile-photo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, transparent 60%, rgba(200,168,75,0.15));
+    }
+
+    .profile-photo-icon {
+      font-size: 60px;
+      opacity: 0.3;
+      margin-bottom: 12px;
+    }
+
+    .profile-info-item {
+      display: flex;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .profile-info-item:first-child { border-top: 1px solid var(--border); }
+
+    .profile-info-label {
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      min-width: 100px;
+      padding-top: 2px;
+    }
+
+    .profile-info-value {
+      font-size: 15px;
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .profile-headline {
+      font-size: 18px;
+      color: var(--navy);
+      font-weight: 700;
+      margin-bottom: 16px;
+      line-height: 1.5;
+    }
+
+    .profile-message {
+      font-size: 15px;
+      color: var(--text-muted);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+
+    /* ===== Career Timeline ===== */
+    .timeline {
+      position: relative;
+      padding-left: 32px;
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 6px;
+      top: 8px;
+      bottom: 8px;
+      width: 2px;
+      background: linear-gradient(to bottom, var(--gold), rgba(200,168,75,0.15));
+    }
+
+    .timeline-item {
+      position: relative;
+      padding-bottom: 40px;
+    }
+
+    .timeline-item:last-child { padding-bottom: 0; }
+
+    .timeline-dot {
+      position: absolute;
+      left: -32px;
+      top: 6px;
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--gold);
+      border: 3px solid var(--white);
+      box-shadow: 0 0 0 2px var(--gold);
+    }
+
+    .timeline-item.current .timeline-dot {
+      background: var(--navy);
+      box-shadow: 0 0 0 2px var(--navy), 0 0 0 4px var(--gold);
+    }
+
+    .timeline-period {
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .timeline-role {
+      font-size: 17px;
+      color: var(--navy);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .timeline-org {
+      font-size: 14px;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .timeline-desc {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    /* ===== Expertise Cards ===== */
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+
+    .expertise-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--gold);
+      border-radius: 4px;
+      padding: 28px 22px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    section:nth-child(even) .expertise-card { background: var(--white); }
+
+    .expertise-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(26,39,68,0.1);
+    }
+
+    .expertise-icon {
+      font-size: 32px;
+      margin-bottom: 14px;
+    }
+
+    .expertise-title {
+      font-size: 15px;
+      color: var(--navy);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .expertise-desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ===== Industry Tags ===== */
+    .industry-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 36px;
+    }
+
+    .industry-tag {
+      background: var(--navy);
+      color: rgba(255,255,255,0.85);
+      font-size: 13px;
+      padding: 6px 16px;
+      border-radius: 2px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ===== Board Roles ===== */
+    .board-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .board-item {
+      background: var(--white);
+      border-left: 4px solid var(--gold);
+      padding: 22px 26px;
+      border-radius: 0 4px 4px 0;
+    }
+
+    section:nth-child(odd) .board-item { background: var(--white); }
+
+    .board-period {
+      font-size: 12px;
+      color: var(--gold);
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      margin-bottom: 4px;
+    }
+
+    .board-company {
+      font-size: 17px;
+      color: var(--navy);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .board-role {
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+
+    .board-badge {
+      display: inline-block;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 2px 8px;
+      border-radius: 2px;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    /* ===== Values ===== */
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .value-card {
+      background: var(--navy);
+      color: var(--white);
+      padding: 36px 28px;
+      border-radius: 4px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .value-card::before {
+      content: attr(data-num);
+      position: absolute;
+      right: 20px;
+      top: 16px;
+      font-size: 64px;
+      font-weight: 900;
+      color: rgba(200,168,75,0.12);
+      line-height: 1;
+    }
+
+    .value-card-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--gold);
+      margin-bottom: 12px;
+      letter-spacing: 0.04em;
+    }
+
+    .value-card-desc {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.8;
+    }
+
+    /* ===== Media ===== */
+    .media-card {
+      background: var(--navy);
+      border-radius: 8px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      gap: 0;
+      max-width: 620px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      text-decoration: none;
+    }
+
+    .media-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(26,39,68,0.25);
+    }
+
+    .media-thumb {
+      width: 180px;
+      min-height: 120px;
+      background: linear-gradient(135deg, #cc0000, #880000);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .media-thumb-icon {
+      font-size: 48px;
+      opacity: 0.9;
+    }
+
+    .media-info {
+      padding: 24px 28px;
+    }
+
+    .media-platform {
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .media-title {
+      font-size: 16px;
+      color: var(--white);
+      font-weight: 700;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
+    .media-desc {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.6;
+    }
+
+    /* ===== Contact ===== */
+    #contact {
+      background: var(--navy);
+      text-align: center;
+    }
+
+    #contact .section-label { color: var(--gold); }
+    #contact .section-title { color: var(--white); }
+
+    .contact-desc {
+      font-size: 16px;
+      color: rgba(255,255,255,0.65);
+      margin-bottom: 40px;
+      line-height: 1.9;
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .contact-link {
+      display: inline-block;
+      padding: 14px 32px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .contact-link-primary {
+      background: var(--gold);
+      color: var(--navy);
+    }
+
+    .contact-link-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    .contact-link-secondary {
+      border: 1px solid rgba(200,168,75,0.5);
+      color: var(--gold);
+    }
+
+    .contact-link-secondary:hover {
+      border-color: var(--gold);
+      background: rgba(200,168,75,0.08);
+    }
+
+    /* ===== Footer ===== */
+    footer {
+      background: #0d1426;
+      color: rgba(255,255,255,0.35);
+      text-align: center;
+      padding: 28px 24px;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+    }
+
+    /* ===== Fade-in animation ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+
+      .profile-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .profile-photo {
+        max-width: 200px;
+        margin: 0 auto;
+      }
+
+      .values-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .expertise-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .media-card { flex-direction: column; }
+      .media-thumb { width: 100%; min-height: 100px; }
+
+      section { padding: 64px 20px; }
+    }
+
+    @media (max-width: 480px) {
+      .expertise-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">高橋正哉 CPA</a>
+      <ul class="nav-links">
+        <li><a href="#profile">プロフィール</a></li>
+        <li><a href="#career">経歴</a></li>
+        <li><a href="#expertise">専門領域</a></li>
+        <li><a href="#board">社外役員</a></li>
+        <li><a href="#values">信念</a></li>
+        <li><a href="#media">メディア</a></li>
+        <li><a href="#contact">お問い合わせ</a></li>
+      </ul>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section id="hero">
+    <div class="hero-content">
+      <div class="hero-badge">Certified Public Accountant</div>
+      <div class="hero-name">高橋正哉</div>
+      <div class="hero-name-kana">TAKAHASHI MASAYA</div>
+      <div class="hero-tagline">会計を活きたものにする</div>
+      <div class="hero-sub">志と会計が変われば会社は変わる</div>
+      <a href="#profile" class="hero-cta">プロフィールを見る</a>
+    </div>
+    <div class="hero-scroll">SCROLL</div>
+  </section>
+
+  <!-- Profile -->
+  <section id="profile">
+    <div class="container">
+      <div class="section-label">Profile</div>
+      <div class="section-divider"></div>
+      <h2 class="section-title">プロフィール</h2>
+      <div class="profile-grid fade-in">
+        <div>
+          <div class="profile-photo">
+            <div class="profile-photo-icon">👤</div>
+            <div>Photo</div>
+          </div>
+        </div>
+        <div>
+          <div class="profile-headline">
+            公認会計士として20年以上、<br>企業の成長と信頼を支え続ける。
+          </div>
+          <div class="profile-message">
+            新日本監査法人での約7.5年の監査実務を経て独立。監査・IPO・M&A・IFRSなど幅広い分野で企業を支援してきました。現在は新月有限責任監査法人の代表社員として、公認会計士本来の使命である「会計を活きたものにする」ことを実践し続けています。
+          </div>
+          <div class="profile-info-item">
+            <span class="profile-info-label">氏名</span>
+            <span class="profile-info-value">高橋 正哉（たかはし まさや）</span>
+          </div>
+          <div class="profile-info-item">
+            <span class="profile-info-label">生年月日</span>
+            <span class="profile-info-value">1979年2月28日</span>
+          </div>
+          <div class="profile-info-item">
+            <span class="profile-info-label">現住所</span>
+            <span class="profile-info-value">大阪府和泉市</span>
+          </div>
+          <div class="profile-info-item">
+            <span class="profile-info-label">家族</span>
+            <span class="profile-info-value">妻1人・息子3人</span>
+          </div>
+          <div class="profile-info-item">
+            <span class="profile-info-label">資格</span>
+            <span class="profile-info-value">公認会計士（2003年合格）</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Career -->
+  <section id="career">
+    <div class="container">
+      <div class="section-label">Career</div>
+      <div class="section-divider"></div>
+      <h2 class="section-title">経歴</h2>
+      <div class="timeline fade-in">
+
+        <div class="timeline-item current">
+          <div class="timeline-dot"></div>
+          <div class="timeline-period">2021年12月 〜 現在</div>
+          <div class="timeline-role">代表社員</div>
+          <div class="timeline-org">新月有限責任監査法人</div>
+          <div class="timeline-desc">監査法人の代表として、質の高い監査サービスと企業支援を提供。IPO支援や財務デューデリジェンスなど幅広い業務を統括。</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-period">独立後</div>
+          <div class="timeline-role">代表</div>
+          <div class="timeline-org">高橋公認会計士事務所 / 社外CFO合同会社</div>
+          <div class="timeline-desc">独立開業後、中堅・中小企業向けに会計・税務・経営コンサルティングサービスを提供。社外CFOとして経営者の右腕として活動。</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-period">2011年頃</div>
+          <div class="timeline-role">コンサルタント</div>
+          <div class="timeline-org">会計系コンサルティング会社</div>
+          <div class="timeline-desc">IFRS導入支援、内部統制構築、財務デューデリジェンスなど高度な専門業務に従事。</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-period">2003年 〜 約7年半</div>
+          <div class="timeline-role">公認会計士</div>
+          <div class="timeline-org">新日本監査法人（現：EY新日本有限責任監査法人）</div>
+          <div class="timeline-desc">製造業・外食・IT・陸運など幅広い業種の法定監査に従事。大手上場企業の監査を通じて高度な監査スキルを習得。</div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-dot"></div>
+          <div class="timeline-period">2003年</div>
+          <div class="timeline-role">公認会計士試験 合格</div>
+          <div class="timeline-org">日本公認会計士協会</div>
+          <div class="timeline-desc">公認会計士第2次試験に合格。キャリアのスタートとなる重要な一歩。</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Expertise -->
+  <section id="expertise">
+    <div class="container">
+      <div class="section-label">Expertise</div>
+      <div class="section-divider"></div>
+      <h2 class="section-title">専門領域</h2>
+      <div class="expertise-grid fade-in">
+
+        <div class="expertise-card">
+          <div class="expertise-icon">📋</div>
+          <div class="expertise-title">会計監査</div>
+          <div class="expertise-desc">上場企業・非上場企業の法定監査・任意監査。高品質な監査を通じて企業の信頼性向上に貢献。</div>
+        </div>
+
+        <div class="expertise-card">
+          <div class="expertise-icon">🚀</div>
+          <div class="expertise-title">IPO支援</div>
+          <div class="expertise-desc">株式上場に向けた準備支援。会計・開示・内部統制の整備から証券取引所との折衝まで総合的にサポート。</div>
+        </div>
+
+        <div class="expertise-card">
+          <div class="expertise-icon">🔍</div>
+          <div class="expertise-title">財務デューデリジェンス</div>
+          <div class="expertise-desc">M&Aに伴う対象企業の財務分析・リスク評価。精度の高いレポートで意思決定を支援。</div>
+        </div>
+
+        <div class="expertise-card">
+          <div class="expertise-icon">🌐</div>
+          <div class="expertise-title">IFRS導入支援</div>
+          <div class="expertise-desc">国際財務報告基準への移行計画策定から実務導入まで。グローバル展開する企業をサポート。</div>
+        </div>
+
+        <div class="expertise-card">
+          <div class="expertise-icon">🛡️</div>
+          <div class="expertise-title">内部統制構築</div>
+          <div class="expertise-desc">J-SOX対応を中心とした内部統制システムの設計・評価。リスクを可視化し経営基盤を強化。</div>
+        </div>
+
+        <div class="expertise-card">
+          <div class="expertise-icon">📊</div>
+          <div class="expertise-title">企業価値評価</div>
+          <div class="expertise-desc">事業承継・M&A・株式発行等における企業価値の算定。DCF・類似会社比較法など多様な手法を活用。</div>
+        </div>
+
+        <div class="expertise-card">
+          <div class="expertise-icon">⚙️</div>
+          <div class="expertise-title">経理業務改善</div>
+          <div class="expertise-desc">月次決算の早期化・経理DX推進・管理会計導入。経理部門を戦略部門へと変革する支援を提供。</div>
+        </div>
+
+      </div>
+
+      <div style="margin-top: 48px;">
+        <div class="section-label">Industry Experience</div>
+        <div style="height: 8px;"></div>
+        <div class="industry-tags">
+          <span class="industry-tag">製造業</span>
+          <span class="industry-tag">外食産業</span>
+          <span class="industry-tag">ITサービス</span>
+          <span class="industry-tag">陸運業</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Board Roles -->
+  <section id="board">
+    <div class="container">
+      <div class="section-label">Board &amp; Academic</div>
+      <div class="section-divider"></div>
+      <h2 class="section-title">社外役員・研究活動</h2>
+      <div class="board-list fade-in">
+
+        <div class="board-item">
+          <div class="board-period">2020年6月 〜 現在</div>
+          <div class="board-company">
+            株式会社サカイ引越センター
+            <span class="board-badge">東証プライム</span>
+          </div>
+          <div class="board-role">社外取締役</div>
+        </div>
+
+        <div class="board-item">
+          <div class="board-period">2017年4月 〜 現在</div>
+          <div class="board-company">同志社大学 技術・企業・国際競争力研究センター</div>
+          <div class="board-role">共同研究員</div>
+        </div>
+
+        <div class="board-item">
+          <div class="board-period">2014年6月 〜 2024年6月</div>
+          <div class="board-company">
+            TOYOイノベックス株式会社
+            <span class="board-badge">東証スタンダード</span>
+          </div>
+          <div class="board-role">社外監査役（任期満了）</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section id="values">
+    <div class="container">
+      <div class="section-label">Philosophy</div>
+      <div class="section-divider"></div>
+      <h2 class="section-title">信念・哲学</h2>
+      <div class="values-grid fade-in">
+
+        <div class="value-card" data-num="01">
+          <div class="value-card-title">志高く</div>
+          <div class="value-card-desc">高い理想と目標を持ち、常に上を目指す姿勢を忘れない。公認会計士としての使命を全うするために、志を羅針盤として行動する。</div>
+        </div>
+
+        <div class="value-card" data-num="02">
+          <div class="value-card-title">常に全力</div>
+          <div class="value-card-desc">どんな仕事にも手を抜かない。クライアントへの責任と、専門家としてのプライドが、全力を尽くすことを支える原動力。</div>
+        </div>
+
+        <div class="value-card" data-num="03">
+          <div class="value-card-title">かっこ悪い生き方はしない</div>
+          <div class="value-card-desc">妥協や誤魔化しを許さない誠実な生き方。見た目ではなく、行動と結果で示す。自分が誇れる仕事だけをする。</div>
+        </div>
+
+        <div class="value-card" data-num="04">
+          <div class="value-card-title">知りながら害をなすな</div>
+          <div class="value-card-desc">公認会計士の根本倫理。問題を知っていながら見て見ぬふりをしない。社会的責任を果たし、信頼される専門家であり続ける。</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Media -->
+  <section id="media">
+    <div class="container">
+      <div class="section-label">Media</div>
+      <div class="section-divider"></div>
+      <h2 class="section-title">メディア活動</h2>
+      <div class="fade-in">
+        <a href="https://www.youtube.com/@cpa-tm" class="media-card" target="_blank" rel="noopener">
+          <div class="media-thumb">
+            <div class="media-thumb-icon">▶</div>
+          </div>
+          <div class="media-info">
+            <div class="media-platform">YouTube Channel</div>
+            <div class="media-title">できる人の会計力講座<br>【新時代の必須スキル】</div>
+            <div class="media-desc">経営者・ビジネスパーソン向けに、会計の本質をわかりやすく解説。財務三表・管理会計・決算書の読み方など実践的なコンテンツを発信中。</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-label">Contact</div>
+      <div class="section-divider" style="background: var(--gold);"></div>
+      <h2 class="section-title">お問い合わせ</h2>
+      <p class="contact-desc">
+        監査・IPO支援・M&A・IFRS・内部統制・企業価値評価など、<br>
+        会計に関するご相談はお気軽にお問い合わせください。
+      </p>
+      <div class="contact-links">
+        <a href="https://www.cpa-tm.com" class="contact-link contact-link-primary" target="_blank" rel="noopener">
+          公式サイトへ
+        </a>
+        <a href="https://www.cpa-tm.com/profile" class="contact-link contact-link-secondary" target="_blank" rel="noopener">
+          詳細プロフィール
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2024 高橋正哉 公認会計士 / 新月有限責任監査法人</p>
+  </footer>
+
+  <script>
+    // Fade-in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Mobile menu toggle
+    function toggleMenu() {
+      const links = document.querySelector('.nav-links');
+      const isOpen = links.style.display === 'flex';
+      links.style.cssText = isOpen
+        ? ''
+        : 'display:flex; flex-direction:column; position:fixed; top:60px; left:0; right:0; background:rgba(26,39,68,0.98); padding:20px 24px 28px; gap:18px; border-bottom:1px solid rgba(200,168,75,0.3);';
+    }
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', () => {
+        const links = document.querySelector('.nav-links');
+        links.style.cssText = '';
+      });
+    });
+
+    // Active nav highlight on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        if (window.scrollY >= section.offsetTop - 80) {
+          current = section.getAttribute('id');
+        }
+      });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current
+          ? 'var(--gold)'
+          : '';
+      });
+    }, { passive: true });
+  </script>
+
+</body>
+</html>
