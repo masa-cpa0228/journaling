@@ -1,0 +1,469 @@
+/* ===== Thought Journal Base Styles ===== */
+
+:root {
+  --color-page: #fbfaf7;
+  --color-surface: #ffffff;
+  --color-text: #1f1f1d;
+  --color-muted: #6c6962;
+  --color-subtle: #f0eee8;
+  --color-border: #dedbd2;
+  --color-accent: #8c6f3f;
+  --color-link: #315f6b;
+  --font-serif: "Hiragino Mincho ProN", "Yu Mincho", YuMincho, "Noto Serif JP", serif;
+  --font-sans: "Hiragino Sans", "Yu Gothic", YuGothic, Meiryo, sans-serif;
+  --content-width: 720px;
+  --wide-width: 1040px;
+  --space-page-x: clamp(20px, 5vw, 48px);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-page);
+  color: var(--color-text);
+  font-family: var(--font-serif);
+  font-size: 16px;
+  line-height: 1.9;
+  text-rendering: optimizeLegibility;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--color-link);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+
+a:hover {
+  color: var(--color-accent);
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+.site-shell {
+  min-height: 100vh;
+}
+
+.site-header,
+.site-footer {
+  padding-inline: var(--space-page-x);
+}
+
+.site-header {
+  border-bottom: 1px solid var(--color-border);
+  background: rgba(251, 250, 247, 0.92);
+}
+
+.site-header-inner,
+.site-footer-inner,
+.wide-container {
+  width: min(100%, var(--wide-width));
+  margin-inline: auto;
+}
+
+.site-header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 72px;
+  gap: 24px;
+}
+
+.site-title {
+  color: var(--color-text);
+  font-family: var(--font-serif);
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-decoration: none;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+
+.site-nav a {
+  color: var(--color-muted);
+  text-decoration: none;
+}
+
+.site-nav a:hover,
+.site-nav a[aria-current="page"] {
+  color: var(--color-text);
+}
+
+.page-main {
+  padding: clamp(48px, 8vw, 96px) var(--space-page-x);
+}
+
+.content-container {
+  width: min(100%, var(--content-width));
+  margin-inline: auto;
+}
+
+.eyebrow {
+  color: var(--color-accent);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.page-title {
+  margin: 12px 0 24px;
+  font-size: clamp(34px, 7vw, 64px);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: 0;
+}
+
+.lead {
+  color: var(--color-muted);
+  font-size: clamp(17px, 2.4vw, 20px);
+  line-height: 1.9;
+}
+
+.page-hero {
+  padding-bottom: clamp(40px, 7vw, 72px);
+}
+
+.home-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.75fr);
+  align-items: center;
+  gap: clamp(40px, 7vw, 88px);
+  min-height: calc(100vh - 160px);
+  padding-bottom: clamp(36px, 6vw, 72px);
+}
+
+.home-hero-copy {
+  max-width: 720px;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 24px;
+  margin-top: 34px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+
+.text-link {
+  color: var(--color-text);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.text-link::after {
+  content: " ->";
+  color: var(--color-accent);
+}
+
+.text-link:hover {
+  color: var(--color-link);
+}
+
+.journal-visual {
+  position: relative;
+  z-index: 0;
+  min-height: 420px;
+  margin: 0;
+}
+
+.journal-paper {
+  position: absolute;
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  box-shadow: 0 24px 60px rgba(31, 31, 29, 0.08);
+}
+
+.journal-paper-main {
+  inset: 44px 18px 28px 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 18px;
+  padding: 34px;
+  z-index: 2;
+}
+
+.journal-paper-main::before {
+  content: "";
+  position: absolute;
+  inset: 26px 26px auto auto;
+  width: 72px;
+  height: 72px;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background:
+    linear-gradient(90deg, transparent 48%, var(--color-border) 48%, var(--color-border) 52%, transparent 52%),
+    linear-gradient(0deg, transparent 48%, var(--color-border) 48%, var(--color-border) 52%, transparent 52%);
+}
+
+.journal-paper-back {
+  top: 0;
+  right: 0;
+  width: 62%;
+  height: 44%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  padding: 22px;
+  color: var(--color-muted);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transform: rotate(4deg);
+  z-index: 0;
+}
+
+.journal-paper-side {
+  left: 0;
+  bottom: 0;
+  width: 46%;
+  height: 34%;
+  display: flex;
+  align-items: flex-end;
+  padding: 22px;
+  color: var(--color-muted);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: var(--color-subtle);
+  z-index: 1;
+}
+
+.journal-paper-label {
+  color: var(--color-accent);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.journal-line {
+  display: block;
+  width: 76%;
+  height: 1px;
+  background: var(--color-border);
+}
+
+.journal-line-wide {
+  width: 100%;
+}
+
+.journal-line-short {
+  width: 48%;
+}
+
+.section-block {
+  padding-block: clamp(40px, 7vw, 72px);
+  border-top: 1px solid var(--color-border);
+}
+
+.section-title {
+  margin: 0 0 24px;
+  font-size: clamp(24px, 4vw, 34px);
+  line-height: 1.35;
+}
+
+.article-list {
+  display: grid;
+  gap: 18px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.article-card {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.article-card p {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.article-card-title {
+  margin: 0 0 8px;
+  font-size: clamp(20px, 3vw, 26px);
+  line-height: 1.45;
+}
+
+.article-card-title a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+.article-card-title a:hover {
+  color: var(--color-link);
+}
+
+.article-meta {
+  color: var(--color-muted);
+  font-family: var(--font-sans);
+  font-size: 13px;
+}
+
+.comparison-list {
+  display: grid;
+  gap: 22px;
+  margin: 0;
+}
+
+.comparison-item {
+  padding-block: 20px;
+  border-top: 1px solid var(--color-border);
+}
+
+.comparison-item:last-child {
+  border-bottom: 1px solid var(--color-border);
+}
+
+.comparison-item dt {
+  margin-bottom: 8px;
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.comparison-item dd {
+  margin: 0;
+  color: var(--color-muted);
+}
+
+.theme-list {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.theme-list li {
+  padding-left: 18px;
+  border-left: 2px solid var(--color-border);
+  color: var(--color-muted);
+}
+
+.page-link-row {
+  margin-top: 28px;
+  font-family: var(--font-sans);
+  font-size: 14px;
+}
+
+.prose {
+  width: min(100%, var(--content-width));
+  margin-inline: auto;
+}
+
+.prose h1,
+.prose h2,
+.prose h3 {
+  line-height: 1.45;
+}
+
+.prose h1 {
+  margin: 0 0 32px;
+  font-size: clamp(34px, 6vw, 54px);
+}
+
+.prose h2 {
+  margin: 56px 0 18px;
+  font-size: clamp(24px, 4vw, 34px);
+}
+
+.prose p {
+  margin: 0 0 1.45em;
+}
+
+.prose blockquote {
+  margin: 36px 0;
+  padding: 4px 0 4px 22px;
+  border-left: 3px solid var(--color-accent);
+  color: var(--color-muted);
+}
+
+.site-footer {
+  border-top: 1px solid var(--color-border);
+  color: var(--color-muted);
+  font-family: var(--font-sans);
+  font-size: 13px;
+}
+
+.site-footer-inner {
+  padding-block: 28px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (max-width: 720px) {
+  .page-main {
+    padding-top: 42px;
+  }
+
+  .home-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .journal-visual {
+    min-height: 300px;
+  }
+
+  .journal-paper-main {
+    inset: 28px 8px 18px 22px;
+    padding: 26px;
+  }
+
+  .site-header-inner {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    padding-block: 16px;
+  }
+
+  .site-nav {
+    flex-wrap: wrap;
+    gap: 12px 18px;
+  }
+}

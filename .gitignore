@@ -1,0 +1,31 @@
+# macOS が自動生成するファイル
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+
+# Windows が自動生成するファイル
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# エディタ・IDE の設定ファイル
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# ログファイル
+*.log
+
+# 環境変数ファイル（万一作っても誤って公開しないように）
+.env
+.env.local
+
+# Python のキャッシュ（server.py 関連）
+__pycache__/
+*.py[cod]
+
+# 個人用の作業メモ（GitHubには公開しない）
+PROGRESS.md
