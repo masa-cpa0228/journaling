@@ -308,6 +308,10 @@ select {
   border-bottom: 1px solid var(--color-border);
 }
 
+.article-list-detailed .article-card {
+  padding-block: 28px;
+}
+
 .article-card p {
   margin: 0;
   color: var(--color-muted);
@@ -332,6 +336,29 @@ select {
   color: var(--color-muted);
   font-family: var(--font-sans);
   font-size: 13px;
+}
+
+.article-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 16px;
+  font-family: var(--font-sans);
+  font-size: 12px;
+}
+
+.article-tags span {
+  border: 1px solid var(--color-border);
+  color: var(--color-muted);
+  padding: 3px 9px;
+}
+
+.empty-note {
+  margin: 0;
+  padding: 22px 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-muted);
 }
 
 .comparison-list {
