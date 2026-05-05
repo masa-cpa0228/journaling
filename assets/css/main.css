@@ -33,6 +33,7 @@ body {
   font-family: var(--font-serif);
   font-size: 16px;
   line-height: 1.9;
+  overflow-wrap: anywhere;
   text-rendering: optimizeLegibility;
 }
 
@@ -135,7 +136,7 @@ select {
 
 .page-title {
   margin: 12px 0 24px;
-  font-size: clamp(34px, 7vw, 64px);
+  font-size: clamp(32px, 6vw, 64px);
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: 0;
@@ -422,7 +423,7 @@ select {
 
 .prose h1 {
   margin: 0 0 32px;
-  font-size: clamp(34px, 6vw, 54px);
+  font-size: clamp(31px, 5.5vw, 54px);
 }
 
 .prose h2 {
@@ -481,17 +482,24 @@ select {
 }
 
 @media (max-width: 720px) {
+  body {
+    line-height: 1.85;
+  }
+
   .page-main {
-    padding-top: 42px;
+    padding-top: 40px;
+    padding-bottom: 64px;
   }
 
   .home-hero {
     grid-template-columns: 1fr;
     min-height: auto;
+    gap: 24px;
+    padding-bottom: 40px;
   }
 
   .journal-visual {
-    min-height: 300px;
+    min-height: 260px;
   }
 
   .journal-paper-main {
@@ -503,11 +511,80 @@ select {
     align-items: flex-start;
     flex-direction: column;
     justify-content: center;
+    gap: 12px;
     padding-block: 16px;
   }
 
   .site-nav {
     flex-wrap: wrap;
     gap: 12px 18px;
+    line-height: 1.5;
+  }
+
+  .page-title {
+    margin-bottom: 20px;
+  }
+
+  .lead {
+    font-size: 17px;
+  }
+
+  .section-block {
+    padding-block: 40px;
+  }
+
+  .article-card,
+  .article-list-detailed .article-card {
+    padding-block: 22px;
+  }
+
+  .prose h1 {
+    margin-bottom: 24px;
+  }
+
+  .prose h2 {
+    margin-top: 44px;
+  }
+
+  .prose blockquote {
+    margin-block: 30px;
+    padding-left: 18px;
+  }
+
+  .article-header {
+    padding-bottom: 24px;
+  }
+}
+
+@media (max-width: 420px) {
+  :root {
+    --space-page-x: 18px;
+  }
+
+  .site-title {
+    font-size: 17px;
+  }
+
+  .site-nav {
+    font-size: 13px;
+  }
+
+  .page-title {
+    font-size: 31px;
+  }
+
+  .section-title,
+  .prose h2 {
+    font-size: 24px;
+  }
+
+  .article-card-title {
+    font-size: 20px;
+  }
+
+  .journal-paper-main {
+    inset: 24px 8px 16px 18px;
+    gap: 14px;
+    padding: 22px;
   }
 }
