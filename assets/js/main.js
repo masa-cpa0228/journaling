@@ -124,8 +124,23 @@
         renderAllArticleSections();
       })
       .catch(function () {
-        // HTMLを直接開いた場合などは、もともとの静的な記事一覧をそのまま表示します。
+        showLoadError();
       });
+  }
+
+  function showLoadError() {
+    var selectors = ["[data-latest-articles]", "[data-article-archive]", "[data-planned-articles]"];
+    selectors.forEach(function (selector) {
+      var list = document.querySelector(selector);
+      if (!list) {
+        return;
+      }
+      list.innerHTML = "";
+      var item = document.createElement("li");
+      item.className = "empty-note";
+      item.textContent = "記事の読み込みに失敗しました。ページを再読み込みしてください。";
+      list.appendChild(item);
+    });
   }
 
   function renderAllArticleSections() {
