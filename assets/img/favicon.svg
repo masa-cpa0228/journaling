@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <title>思考ジャーナル favicon</title>
+  <rect width="64" height="64" rx="14" fill="#efe7da"/>
+  <circle cx="51" cy="13" r="8" fill="#d1a45f" opacity="0.32"/>
+  <circle cx="12" cy="52" r="10" fill="#5d6f64" opacity="0.22"/>
+  <rect x="16" y="10" width="32" height="44" rx="4" fill="#fffaf1" stroke="#8b7357" stroke-width="2"/>
+  <path d="M23 21h18M23 30h18M23 39h12" fill="none" stroke="#8b7357" stroke-width="3" stroke-linecap="round"/>
+  <path d="M42 42l6 6" fill="none" stroke="#2d2924" stroke-width="4" stroke-linecap="round"/>
+</svg>
