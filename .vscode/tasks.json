@@ -1,0 +1,31 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "サイト確認用サーバーを起動",
+      "type": "shell",
+      "command": "python3",
+      "args": [
+        "server.py",
+        "3001"
+      ],
+      "isBackground": true,
+      "problemMatcher": {
+        "owner": "site-server",
+        "pattern": {
+          "regexp": "^$"
+        },
+        "background": {
+          "activeOnStart": true,
+          "beginsPattern": "Serving on http://localhost:3001",
+          "endsPattern": "Serving on http://localhost:3001"
+        }
+      },
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated",
+        "clear": true
+      }
+    }
+  ]
+}
