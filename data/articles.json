@@ -1,5 +1,17 @@
 [
   {
+    "id": "2026-05-06-learning-vibe-coding",
+    "status": "published",
+    "date": "2026-05-06",
+    "displayDate": "2026年5月6日",
+    "title": "非エンジニアとして、バイブコーディングに向き合い始めた",
+    "url": "articles/2026-05-06-learning-vibe-coding.html",
+    "category": "学び・生成AI・個人開発",
+    "eyebrow": "Learning / AI / Coding",
+    "summary": "生成AIとバイブコーディングに向き合い始めた記録。小さなツールを自分で作る喜びと、これから学び続ける理由について考えます。",
+    "tags": ["生成AI", "学び", "個人開発", "記録"]
+  },
+  {
     "id": "2026-05-05-accountants-and-generative-ai",
     "status": "published",
     "date": "2026-05-05",
