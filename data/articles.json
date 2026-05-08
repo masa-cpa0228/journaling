@@ -45,13 +45,13 @@
     "tags": ["会計", "仕事観", "思考"]
   },
   {
-    "id": "planned-reading-words",
+    "id": "planned-ai-trial-and-error",
     "status": "planned",
     "displayDate": "準備中",
-    "title": "読んだ本から残った言葉",
-    "category": "読書",
-    "summary": "知識の要約ではなく、時間が経っても残り続ける一文や考え方について書きます。",
-    "tags": ["読書", "言葉", "記録"]
+    "title": "生成AIを使いながら考えたこと",
+    "category": "生成AI・試行錯誤",
+    "summary": "生成AIを日々の仕事や思考整理に使いながら、うまくいったこと、つまずいたこと、残った問いについて書きます。",
+    "tags": ["生成AI", "試行錯誤", "仕事術", "記録"]
   },
   {
     "id": "planned-life-stance",
