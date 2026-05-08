@@ -1,5 +1,17 @@
 [
   {
+    "id": "2026-05-08-value-of-context-for-ai",
+    "status": "published",
+    "date": "2026-05-08",
+    "displayDate": "2026年5月8日",
+    "title": "AI時代の「背景情報」の価値",
+    "url": "articles/2026-05-08-value-of-context-for-ai.html",
+    "category": "生成AI・仕事術・思考整理",
+    "eyebrow": "AI / Context / Workflow",
+    "summary": "生成AIに良い回答をしてもらうために必要な、背景情報の残し方について考えます。音声メモ、ローカルファイル、Markdownによる記録の価値を整理します。",
+    "tags": ["生成AI", "仕事術", "思考整理", "記録"]
+  },
+  {
     "id": "2026-05-06-learning-vibe-coding",
     "status": "published",
     "date": "2026-05-06",
